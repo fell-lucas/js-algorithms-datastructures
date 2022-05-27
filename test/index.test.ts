@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { convertToRoman, palindrome } from '../src'
+import { convertToRoman, palindrome, rot13 } from '../src'
 
 describe('palindrome', () => {
   it('should work', () => {
@@ -46,5 +46,15 @@ describe('convertToRoman', () => {
     expect(convertToRoman(1023)).toEqual('MXXIII')
     expect(convertToRoman(2014)).toEqual('MMXIV')
     expect(convertToRoman(3999)).toEqual('MMMCMXCIX')
+  })
+})
+
+describe('rot13 cipher', () => {
+  it('should work', () => {
+    expect(rot13('SERR PBQR PNZC')).toEqual('FREE CODE CAMP')
+    expect(rot13('SERR CVMMN!')).toEqual('FREE PIZZA!')
+    expect(rot13('FREE PIZZA!')).toEqual('SERR CVMMN!')
+    expect(rot13('SERR YBIR?')).toEqual('FREE LOVE?')
+    expect(rot13('GUR DHVPX OEBJA SBK WHZCF BIRE GUR YNML QBT.')).toEqual('THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.')
   })
 })
