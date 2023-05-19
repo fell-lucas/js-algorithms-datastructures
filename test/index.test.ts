@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { convertToRoman, palindrome, rot13 } from '../src'
+import { convertToRoman, palindrome, rot13, telephoneCheck } from '../src'
 
 describe('palindrome', () => {
   it('should work', () => {
@@ -56,5 +56,21 @@ describe('rot13 cipher', () => {
     expect(rot13('FREE PIZZA!')).toEqual('SERR CVMMN!')
     expect(rot13('SERR YBIR?')).toEqual('FREE LOVE?')
     expect(rot13('GUR DHVPX OEBJA SBK WHZCF BIRE GUR YNML QBT.')).toEqual('THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.')
+  })
+})
+
+describe('telephoneCheck', () => {
+  it('should work', () => {
+    const validNumbers = [
+      '555-555-5555',
+      '(555)555-5555',
+      '(555) 555-5555',
+      '555 555 5555',
+      '5555555555',
+      '1 555 555 5555',
+    ]
+    validNumbers.forEach((number) => {
+      expect(telephoneCheck(number)).toEqual(true)
+    })
   })
 })

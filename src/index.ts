@@ -79,3 +79,9 @@ export const rot13 = (input: string) => {
 
   return shifted
 }
+
+export const telephoneCheck = (str: string) => {
+  // Should validate US phone numbers
+  // e.g. 555-555-5555, 1 555-555-5555, 1 (555) 555-5555, 5555555555, 555-555-5555, (555)555-5555, 1(555)555-5555
+  return /^1? ?(\(\d{3}\)|\d{3})-? ?\d{3}-? ?\d{4}$/.test(str)
+}
